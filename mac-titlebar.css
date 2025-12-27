@@ -1,1 +1,232 @@
+/* ============================================
+   macOS TITLEBAR - Traffic Light Buttons
+   Updated for Discord 2025 Visual Refresh
+   ============================================ */
 
+/* Windows platform - Convert to macOS style */
+.platform-win [class*="typeWindows_"] {
+    z-index: 102;
+    position: absolute;
+    flex-direction: row;
+    align-items: center;
+    top: 2px;
+    width: calc(68px + 12px);
+    left: 0;
+    margin: 0;
+    padding-top: 12px;
+    -webkit-app-region: no-drag;
+}
+
+/* Hide Windows wordmark */
+.platform-win [class*="typeWindows_"] [class*="wordmark_"] {
+    display: none;
+}
+
+/* Base button styling - macOS traffic lights */
+.platform-win [class*="typeWindows_"] [class*="winButton_"] {
+    width: 12px;
+    height: 12px;
+    min-width: 12px;
+    min-height: 12px;
+    margin-left: 8px;
+    border-radius: 50%;
+    background-color: #3c3c3c;
+    background-size: 0;
+    -webkit-app-region: no-drag;
+    transition: background-color 0.15s ease;
+}
+
+.platform-win [class*="typeWindows_"] [class*="winButton_"]:first-child {
+    margin-left: 12px;
+}
+
+/* Hide default Windows icons */
+.platform-win [class*="typeWindows_"] [class*="winButton_"] svg {
+    display: none;
+}
+
+/* Close button - Red */
+.platform-win.app-focused [class*="typeWindows_"] [class*="winButtonClose_"] {
+    order: -2;
+    background-color: #ff5f57;
+}
+
+.platform-win.app-focused [class*="typeWindows_"]:hover [class*="winButtonClose_"] {
+    background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3.5 3.5l5 5M8.5 3.5l-5 5' stroke='%23860009' stroke-width='1.2' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-position: center;
+    background-size: 10px;
+    background-repeat: no-repeat;
+}
+
+/* Minimize button - Yellow */
+.platform-win.app-focused [class*="typeWindows_"] [class*="winButtonMinMax_"]:nth-child(2) {
+    order: -1;
+    background-color: #febc2e;
+}
+
+.platform-win.app-focused [class*="typeWindows_"]:hover [class*="winButtonMinMax_"]:nth-child(2) {
+    background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.5 6h7' stroke='%239a6b00' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-position: center;
+    background-size: 10px;
+    background-repeat: no-repeat;
+}
+
+/* Maximize button - Green */
+.platform-win.app-focused [class*="typeWindows_"] [class*="winButtonMinMax_"]:nth-child(3) {
+    order: 0;
+    background-color: #28c840;
+}
+
+.platform-win.app-focused [class*="typeWindows_"]:hover [class*="winButtonMinMax_"]:nth-child(3) {
+    background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3 3l2.5 2.5M9 9l-2.5-2.5M3 9l2.5-2.5M9 3l-2.5 2.5' stroke='%23006500' stroke-width='1.2' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-position: center;
+    background-size: 10px;
+    background-repeat: no-repeat;
+}
+
+/* Unfocused state - Gray */
+.platform-win:not(.app-focused) [class*="typeWindows_"] [class*="winButton_"] {
+    background-color: #3c3c3c !important;
+    background-image: none !important;
+}
+
+/* Title bar background */
+.platform-win [class*="typeWindows_"][class*="withBackgroundOverride_"] {
+    padding-top: 12px;
+    background: none;
+}
+
+/* Draggable regions */
+[class*="guilds_"]:not([class*="content-"]),
+[class*="container_"][class*="header_"],
+[class*="children_"] [class*="iconWrapper_"] > svg {
+    -webkit-app-region: drag;
+}
+
+[class*="listItem_"] > *,
+[class*="toolbar_"] > *,
+.platform-win [class*="topicClickTarget_"],
+[class*="cursorPointer_"][class*="title_"],
+[class*="sidebarRegion_"],
+[class*="closeButton_"],
+[class*="menu-"][role="menu"] {
+    -webkit-app-region: no-drag;
+}
+
+/* Drag region above titlebar */
+.platform-win [class*="typeWindows_"]::before {
+    content: '';
+    top: 0;
+    left: 0;
+    position: fixed;
+    height: calc(var(--window-margin) * 1px);
+    width: 100%;
+    -webkit-app-region: drag;
+}
+
+/* ============================================
+   DISCORD 2025 VISUAL REFRESH SUPPORT
+   ============================================ */
+
+/* New titlebar class names */
+.platform-win .titleBar__39c6d {
+    z-index: 102;
+    position: absolute;
+    flex-direction: row;
+    align-items: center;
+    top: 2px;
+    width: calc(68px + 12px);
+    left: 0;
+    margin: 0;
+    padding-top: 12px;
+    -webkit-app-region: no-drag;
+    background: transparent;
+}
+
+.platform-win .titleBar__39c6d .wordmark__39c6d {
+    display: none;
+}
+
+.platform-win .titleBar__39c6d .winButton__39c6d {
+    width: 12px;
+    height: 12px;
+    min-width: 12px;
+    min-height: 12px;
+    margin-left: 8px;
+    border-radius: 50%;
+    background-color: #3c3c3c;
+    background-size: 0;
+    -webkit-app-region: no-drag;
+    transition: background-color 0.15s ease;
+}
+
+.platform-win .titleBar__39c6d .winButton__39c6d:first-child {
+    margin-left: 12px;
+}
+
+.platform-win .titleBar__39c6d .winButton__39c6d svg {
+    display: none;
+}
+
+/* Close - Red */
+.platform-win.app-focused .titleBar__39c6d .winButtonClose__39c6d {
+    order: -2;
+    background-color: #ff5f57;
+}
+
+.platform-win.app-focused .titleBar__39c6d:hover .winButtonClose__39c6d {
+    background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3.5 3.5l5 5M8.5 3.5l-5 5' stroke='%23860009' stroke-width='1.2' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-position: center;
+    background-size: 10px;
+    background-repeat: no-repeat;
+}
+
+/* Minimize - Yellow */
+.platform-win.app-focused .titleBar__39c6d .winButtonMinimize__39c6d {
+    order: -1;
+    background-color: #febc2e;
+}
+
+.platform-win.app-focused .titleBar__39c6d:hover .winButtonMinimize__39c6d {
+    background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.5 6h7' stroke='%239a6b00' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-position: center;
+    background-size: 10px;
+    background-repeat: no-repeat;
+}
+
+/* Maximize - Green */
+.platform-win.app-focused .titleBar__39c6d .winButtonMaximize__39c6d {
+    order: 0;
+    background-color: #28c840;
+}
+
+.platform-win.app-focused .titleBar__39c6d:hover .winButtonMaximize__39c6d {
+    background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3 3l2.5 2.5M9 9l-2.5-2.5M3 9l2.5-2.5M9 3l-2.5 2.5' stroke='%23006500' stroke-width='1.2' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-position: center;
+    background-size: 10px;
+    background-repeat: no-repeat;
+}
+
+/* Unfocused */
+.platform-win:not(.app-focused) .titleBar__39c6d .winButton__39c6d {
+    background-color: #3c3c3c !important;
+    background-image: none !important;
+}
+
+/* ============================================
+   CHANNEL TABS PLUGIN SUPPORT
+   ============================================ */
+
+.platform-win #channelTabs-container {
+    margin-top: 29px;
+}
+
+.platform-win #channelTabs-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 29px;
+    margin-left: 62px;
+    -webkit-app-region: drag;
+}
